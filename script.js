@@ -1,7 +1,7 @@
   // Prayers time
 document.addEventListener("scroll",PageColor);  
 function PageColor(){
-    var currentScroll = window.pageYOffset;
+    var currentScroll = window.scrollY;
     if(currentScroll > 180){
         document.body.style.backgroundColor = 'Yellow';
     }
@@ -16,7 +16,7 @@ async function Salah_timing(){
     if(document.getElementById("flexSwitchCheckDefault").checked){
         school="&school=0";
     }
-    let api_url='http://api.aladhan.com/v1/timingsByCity/:date_or_timestamp?'+city+country+school;
+    let api_url='https://api.aladhan.com/v1/timingsByCity/:date_or_timestamp?'+city+country+school;
     const response = await fetch(api_url);
     const Time = await response.json();
     const { Fajr, Dhuhr, Sunrise, Asr, Maghrib, Isha } = Time.data.timings;
